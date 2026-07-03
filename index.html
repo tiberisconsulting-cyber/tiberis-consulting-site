@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiberis Consulting — Strategy &amp; Branding Advisory</title>
+<meta name="description" content="Strategic and brand advisory for cultural institutions, museums and heritage — through the language of art.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="assets/tc_monogram_black.png">
+
+<style>
+  :root {
+    --ink: #000000;
+    --paper: #FFFFFF;
+    --navy: #24477F;
+    --klein: #002FA7;
+    --muted: #6B6B6B;
+    --card: #F5F5F5;
+    --display: 'Bodoni Moda', serif;
+    --body: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section {
+    padding: 96px 0;
+    border-bottom: 1px solid #EDEDED;
+  }
+  section:last-of-type { border-bottom: none; }
+
+  .rule {
+    width: 64px;
+    height: 2px;
+    background: var(--klein);
+    margin: 0 0 28px 0;
+    border: none;
+  }
+
+  /* ---------- Language switcher ---------- */
+  .lang-switch {
+    position: fixed;
+    top: 22px;
+    right: 28px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    font-family: var(--body);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .lang-switch button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-family: var(--body);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 2px;
+  }
+  .lang-switch button.active {
+    color: var(--ink);
+    border-bottom: 1px solid var(--klein);
+  }
+
+  /* language content visibility: English visible by default (works even if JS fails to load), JS switches between languages */
+  [data-lang-content] { display: none; }
+  [data-lang-content="en"] { display: block; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-top: 140px;
+    padding-bottom: 120px;
+    text-align: center;
+  }
+  .hero img.mark {
+    width: 46px;
+    height: auto;
+    margin-bottom: 36px;
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(48px, 9vw, 96px);
+    letter-spacing: 0.01em;
+    margin: 0;
+    line-height: 1;
+  }
+  .hero .sub {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(16px, 2.4vw, 22px);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 10px 0 40px 0;
+  }
+  .hero .tagline {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Section headings ---------- */
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(26px, 4vw, 34px);
+    margin: 0 0 28px 0;
+    letter-spacing: 0.01em;
+  }
+
+  .lede {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .lede + .lede { margin-top: 20px; }
+
+  em.accent {
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--navy);
+  }
+
+  /* ---------- Pillars ---------- */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .pillar {
+    background: var(--card);
+    padding: 28px 26px;
+  }
+  .pillar h3 {
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0 0 10px 0;
+  }
+  .pillar p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+  }
+
+  @media (max-width: 620px) {
+    .pillars { grid-template-columns: 1fr; }
+    section { padding: 64px 0; }
+    .hero { padding-top: 100px; padding-bottom: 80px; }
+    .lang-switch { top: 16px; right: 18px; }
+  }
+
+  /* ---------- Confidentiality ---------- */
+  .confidential {
+    text-align: center;
+    padding: 80px 0;
+  }
+  .confidential p.stat {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: clamp(17px, 2.4vw, 19px);
+    color: var(--ink);
+    max-width: 520px;
+    margin: 0 auto 16px auto;
+    line-height: 1.6;
+  }
+  .confidential p.note {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact { text-align: center; }
+  .contact a.email {
+    display: inline-block;
+    font-family: var(--display);
+    font-size: clamp(20px, 4vw, 28px);
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--klein);
+    padding-bottom: 4px;
+    margin-top: 8px;
+  }
+  .contact a.email:hover { color: var(--klein); }
+  .contact .note {
+    margin-top: 22px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 56px 0 64px 0;
+    text-align: center;
+  }
+  footer img.mark {
+    width: 24px;
+    height: auto;
+    opacity: 0.85;
+    margin-bottom: 14px;
+  }
+  footer .meta {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+  <nav class="lang-switch">
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="it">IT</button>
+    <button type="button" data-lang="fr">FR</button>
+  </nav>
+
+  <section class="hero wrap">
+    <img class="mark" src="assets/tc_monogram_black.png" alt="Tiberis Consulting mark">
+    <h1>TIBERIS</h1>
+    <div class="sub">Consulting</div>
+
+    <p class="tagline" data-lang-content="en">Strategy and brand advisory for museums, cultural institutions and heritage — through the language of art.</p>
+    <p class="tagline" data-lang-content="it">Consulenza strategica e di branding per musei, istituzioni culturali e patrimonio — nel linguaggio dell'arte.</p>
+    <p class="tagline" data-lang-content="fr">Conseil en strat&eacute;gie et en identit&eacute; de marque pour mus&eacute;es, institutions culturelles et patrimoine — dans le langage de l'art.</p>
+  </section>
+
+  <section id="about" class="wrap">
+    <hr class="rule">
+
+    <div data-lang-content="en">
+      <h2>What we do</h2>
+      <p class="lede">Tiberis Consulting is a boutique strategy and branding advisory for cultural institutions, museums and brands that build distinction through the language of art.</p>
+      <p class="lede">We take on few, selected mandates each year. For each one, we assemble an international team drawn from a network built over fifteen years of work with museums, heritage authorities and academic institutions across three continents.</p>
+      <p class="lede">Our method sits at the intersection of contemporary art, science and cultural heritage. It is grounded in direct relationships with universities, ministries of culture and national museums — and in hands-on experience delivering strategy and rebranding for new museums, historic sites and future UNESCO-listed properties.</p>
+      <p class="lede"><em class="accent">Solid roots. A clear vision.</em></p>
+    </div>
+
+    <div data-lang-content="it">
+      <h2>Cosa facciamo</h2>
+      <p class="lede">Tiberis Consulting è una boutique di consulenza strategica e branding per musei, istituzioni culturali e brand che costruiscono la propria distinzione nel linguaggio dell'arte.</p>
+      <p class="lede">Seguiamo pochi mandati all'anno, scelti con cura. Per ognuno componiamo una squadra internazionale, frutto di una rete costruita in quindici anni di lavoro con musei, sovrintendenze e istituzioni accademiche su tre continenti.</p>
+      <p class="lede">Il nostro metodo nasce all'incrocio tra arte contemporanea, scienza e patrimonio storico. Si fonda su relazioni dirette con università, ministeri della cultura e musei nazionali — e su un'esperienza concreta nella pianificazione strategica e nel rebranding di nuovi musei, siti storici e futuri siti UNESCO.</p>
+      <p class="lede"><em class="accent">Radici solide, visione chiara.</em></p>
+    </div>
+
+    <div data-lang-content="fr">
+      <h2>Ce que nous faisons</h2>
+      <p class="lede">Tiberis Consulting est un cabinet de conseil en strat&eacute;gie et en identit&eacute; de marque pour mus&eacute;es, institutions culturelles et marques qui affirment leur singularit&eacute; par le langage de l'art.</p>
+      <p class="lede">Nous n'acceptons chaque ann&eacute;e qu'un nombre restreint de mandats, choisis avec soin. Pour chacun, nous r&eacute;unissons une &eacute;quipe internationale, issue d'un r&eacute;seau tiss&eacute; en quinze ans aupr&egrave;s de mus&eacute;es, d'autorit&eacute;s du patrimoine et d'institutions acad&eacute;miques sur trois continents.</p>
+      <p class="lede">Notre m&eacute;thode na&icirc;t &agrave; la crois&eacute;e de l'art contemporain, de la science et du patrimoine culturel. Elle s'appuie sur des liens directs avec des universit&eacute;s, des minist&egrave;res de la culture et des mus&eacute;es nationaux — et sur une exp&eacute;rience concr&egrave;te du d&eacute;veloppement strat&eacute;gique et du rebranding de nouveaux mus&eacute;es, de sites historiques et de futurs sites class&eacute;s UNESCO.</p>
+      <p class="lede"><em class="accent">Racines profondes, vision claire.</em></p>
+    </div>
+  </section>
+
+  <section id="approach" class="wrap">
+    <hr class="rule">
+
+    <div data-lang-content="en">
+      <h2>How we work</h2>
+      <div class="pillars">
+        <div class="pillar"><h3>Method</h3><p>Contemporary art, science and historical heritage in a single approach — rare, built in the field over fifteen years.</p></div>
+        <div class="pillar"><h3>Network</h3><p>Direct relationships with international institutions — universities, ministries, national museums. Verifiable references, not promises.</p></div>
+        <div class="pillar"><h3>Discipline</h3><p>Few mandates a year. An international team assembled case by case — never a fixed roster.</p></div>
+        <div class="pillar"><h3>Recognition</h3><p>Projects that become recognized heritage — museums, UNESCO sites, cultural institutions across three continents.</p></div>
+      </div>
+    </div>
+
+    <div data-lang-content="it">
+      <h2>Come lavoriamo</h2>
+      <div class="pillars">
+        <div class="pillar"><h3>Metodo</h3><p>Arte contemporanea, scienza e patrimonio storico in un solo approccio — raro, maturato sul campo in quindici anni.</p></div>
+        <div class="pillar"><h3>Rete</h3><p>Relazioni dirette con istituzioni internazionali: università, ministeri, musei nazionali. Referenze verificabili, non promesse.</p></div>
+        <div class="pillar"><h3>Disciplina</h3><p>Pochi mandati l'anno. Una squadra internazionale composta caso per caso — mai un organico fisso.</p></div>
+        <div class="pillar"><h3>Riconoscimento</h3><p>Progetti che diventano patrimonio riconosciuto: musei, siti UNESCO, istituzioni culturali su tre continenti.</p></div>
+      </div>
+    </div>
+
+    <div data-lang-content="fr">
+      <h2>Notre m&eacute;thode</h2>
+      <div class="pillars">
+        <div class="pillar"><h3>M&eacute;thode</h3><p>L'art contemporain, la science et le patrimoine historique r&eacute;unis dans une seule approche — rare, forg&eacute;e sur le terrain depuis quinze ans.</p></div>
+        <div class="pillar"><h3>R&eacute;seau</h3><p>Des liens directs avec des institutions internationales : universit&eacute;s, minist&egrave;res, mus&eacute;es nationaux. Des r&eacute;f&eacute;rences v&eacute;rifiables, pas des promesses.</p></div>
+        <div class="pillar"><h3>Discipline</h3><p>Peu de mandats chaque ann&eacute;e. Une &eacute;quipe internationale r&eacute;unie au cas par cas — jamais une structure fixe.</p></div>
+        <div class="pillar"><h3>Reconnaissance</h3><p>Des projets qui deviennent patrimoine reconnu : mus&eacute;es, sites class&eacute;s UNESCO, institutions culturelles sur trois continents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="confidential wrap">
+    <p class="stat" data-lang-content="en">Fifteen years. Three continents. More than &euro;17M in cultural and institutional projects — the experience behind Tiberis Consulting.</p>
+    <p class="stat" data-lang-content="it">Quindici anni. Tre continenti. Oltre 17 milioni di euro in progetti culturali e istituzionali: l'esperienza dietro Tiberis Consulting.</p>
+    <p class="stat" data-lang-content="fr">Quinze ans. Trois continents. Plus de 17&nbsp;M&euro; de projets culturels et institutionnels — l'exp&eacute;rience derri&egrave;re Tiberis Consulting.</p>
+
+    <p class="note" data-lang-content="en">Selective by design. Available by inquiry.</p>
+    <p class="note" data-lang-content="it">Selettivi per scelta. Disponibili su richiesta.</p>
+    <p class="note" data-lang-content="fr">S&eacute;lectifs par nature. Disponibles sur demande.</p>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <hr class="rule" style="margin-left:auto;margin-right:auto;">
+
+    <h2 data-lang-content="en">Contact</h2>
+    <h2 data-lang-content="it">Contatti</h2>
+    <h2 data-lang-content="fr">Contact</h2>
+
+    <a class="email" href="mailto:tiberis.consulting@gmail.com">tiberis.consulting@gmail.com</a>
+
+    <p class="note" data-lang-content="en">Rome, Italy</p>
+    <p class="note" data-lang-content="it">Roma, Italia</p>
+    <p class="note" data-lang-content="fr">Rome, Italie</p>
+  </section>
+
+  <footer>
+    <img class="mark" src="assets/tc_monogram_black.png" alt="Tiberis Consulting">
+    <div class="meta">Tiberis Consulting &middot; © 2026</div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang-content]').forEach(function (el) {
+        el.style.display = (el.getAttribute('data-lang-content') === lang) ? 'block' : 'none';
+      });
+      document.querySelectorAll('.lang-switch button').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+      document.documentElement.setAttribute('lang', lang);
+      try { localStorage.setItem('tc_lang', lang); } catch (e) {}
+    }
+
+    document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+      btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+    });
+
+    var saved = null;
+    try { saved = localStorage.getItem('tc_lang'); } catch (e) {}
+    var browserLang = (navigator.language || 'en').slice(0, 2);
+    var initial = saved || (['it', 'fr'].includes(browserLang) ? browserLang : 'en');
+    setLang(initial);
+  </script>
+
+</body>
+</html>
