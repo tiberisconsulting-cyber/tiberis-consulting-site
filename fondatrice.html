@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Fondatrice — Karolina Liusikova, oltre quindici anni tra arte contemporanea, fondazioni private e istituzioni culturali. Il percorso dietro Tiberis Consulting.">
+  <title>La Fondatrice — Tiberis Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#0D0E14;line-height:1.6;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    button{cursor:pointer;background:none;border:none;font-family:inherit}
+    a{text-decoration:none;color:inherit}
+
+    :root{
+      --blue:#1A42CC;
+      --navy:#0F1B35;
+      --grey:#888;
+      --light:#F4F4F6;
+      --rule:#E4E4E8;
+      --black:#0D0E14;
+    }
+
+    .wrap{max-width:1152px;margin:0 auto;padding:0 1.5rem}
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.on{opacity:1;transform:none}
+
+    /* ── HEADER ── */
+    header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--rule)}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;max-width:1280px;margin:0 auto}
+    .logo{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+    .logo-mark{height:34px;width:auto}
+    .logo-txt{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--navy)}
+
+    nav.desktop{display:none}
+    @media(min-width:768px){nav.desktop{display:flex;align-items:center;gap:2.5rem}}
+    nav.desktop a{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--grey);transition:color .2s}
+    nav.desktop a:hover{color:var(--black)}
+    .btn-nav{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border:1.5px solid var(--navy);padding:.55rem 1.2rem;color:var(--navy);transition:background .2s,color .2s}
+    .btn-nav:hover{background:var(--navy);color:#fff}
+
+    .lang-switch{display:flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:600;letter-spacing:.08em}
+    .lang-switch button{color:var(--grey);padding:.2rem;transition:color .2s}
+    .lang-switch button:hover{color:var(--black)}
+    .lang-switch button.active{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+    .lang-switch-header{margin-left:auto;margin-right:1.5rem}
+    @media(max-width:767px){.lang-switch-header{margin-right:1rem}}
+
+    /* Mobile menu */
+    .hamburger{display:flex;flex-direction:column;gap:5px;padding:.4rem;cursor:pointer}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--black);transition:.2s}
+    @media(min-width:768px){.hamburger{display:none}}
+    .mobile-menu{display:none;flex-direction:column;gap:0;background:#fff;border-top:1px solid var(--rule)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:1rem 1.5rem;font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--rule);color:var(--black)}
+
+    /* ── SECTIONS shared ── */
+    section{padding:6rem 0}
+    .eyebrow{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--blue);margin-bottom:1.25rem}
+    h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:500;line-height:1.2;margin-bottom:1rem}
+    h3{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem;color:var(--black)}
+
+    /* ── FOUNDER PAGE ── */
+    .founder-back{display:inline-block;margin-bottom:2rem;font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--grey);transition:color .2s}
+    .founder-back:hover{color:var(--black)}
+    .about-text p{font-size:.95rem;color:var(--grey);line-height:1.85}
+    .about-text p+p{margin-top:1.5rem}
+    .founder-cta{margin-top:3rem}
+
+    /* ── CTA (shared style for footer button) ── */
+    .cta{background:var(--navy);color:#fff;text-align:center;padding:7rem 1.5rem}
+    .cta h2{color:#fff;margin-bottom:1rem}
+    .cta p{color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:2.5rem}
+    .btn-cta{display:inline-block;background:#fff;color:var(--navy);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:1rem 2.5rem;transition:opacity .2s}
+    .btn-cta:hover{opacity:.88}
+
+    /* ── FOOTER ── */
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);padding:3rem 1.5rem}
+    .footer-inner{max-width:1152px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem}
+    .footer-logo{display:flex;align-items:center;gap:.75rem}
+    .footer-mark{height:26px;opacity:.8}
+    .footer-logo span{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.5)}
+    nav.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+    nav.footer-nav a{font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);transition:color .2s}
+    nav.footer-nav a:hover{color:rgba(255,255,255,.8)}
+    .footer-copy{font-size:.65rem;color:rgba(255,255,255,.25);letter-spacing:.05em;text-align:right;width:100%}
+    .footer-copy span{display:block;color:rgba(255,255,255,.2);font-style:italic;margin-top:.25rem}
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="hdr">
+    <a class="logo" href="index.html">
+      <img src="tc_monogram_black.png" alt="Tiberis Consulting" class="logo-mark">
+      <span class="logo-txt">Tiberis Consulting</span>
+    </a>
+    <div class="lang-switch lang-switch-header">
+      <button data-lang-btn="en" type="button">EN</button>
+      <button data-lang-btn="it" type="button">IT</button>
+      <button data-lang-btn="fr" type="button">FR</button>
+    </div>
+    <nav class="desktop">
+      <a href="index.html#about" data-i18n="nav.about">Chi siamo</a>
+      <a href="index.html#approach" data-i18n="nav.method">Metodo</a>
+      <a href="index.html#services" data-i18n="nav.services">Servizi</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Contatti</a>
+      <a class="btn-nav" href="index.html#contact" data-i18n="nav.book">Richiedi un colloquio</a>
+    </nav>
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu">
+    <a href="index.html#about" data-i18n="nav.about">Chi siamo</a>
+    <a href="index.html#approach" data-i18n="nav.method">Metodo</a>
+    <a href="index.html#services" data-i18n="nav.services">Servizi</a>
+    <a href="index.html#contact" data-i18n="nav.contact">Contatti</a>
+    <a href="index.html#contact" data-i18n="nav.book">Richiedi un colloquio</a>
+  </nav>
+</header>
+
+<!-- ══ FOUNDER ══ -->
+<section id="fondatrice" style="padding-top:5rem">
+  <div class="wrap" style="max-width:760px">
+    <a class="founder-back reveal" href="index.html" data-i18n="founder.back">← Tiberis Consulting</a>
+    <p class="eyebrow reveal" data-i18n="founder.eyebrow">La Fondatrice</p>
+    <h2 class="reveal" data-i18n="founder.h1">Karolina Liusikova.</h2>
+    <div class="about-text reveal" style="margin-top:2rem">
+      <p data-i18n="founder.p1">Karolina Liusikova ha fondato Tiberis Consulting nel 2025, dopo oltre quindici anni nel mondo dell'arte e delle istituzioni culturali. Il suo percorso è cominciato nelle gallerie d'arte contemporanea, è proseguito nelle fondazioni private, e si è esteso — su tre continenti — a musei ed enti pubblici, costruendo posizionamento e narrativa per collezioni e archivi chiamati a parlare a nuovi pubblici.</p>
+      <p data-i18n="founder.p2">Negozia direttamente con agenzie internazionali, ministeri ed enti pubblici: diritti d'uso e di immagine, patrocini, collaborazioni tra soggetti con interessi diversi. La stessa capacità negoziale le ha permesso, nel tempo, di coinvolgere personalità di rilievo del mondo del cinema e dell'arte in progetti ed eventi ad alta visibilità.</p>
+      <p data-i18n="founder.p3">Individua bandi regionali ed europei, costruisce dossier tecnici, disegna strategie di patrocinio rivolte a singoli donatori. Nel tempo, questo lavoro ha contribuito a portare oltre 17 milioni di euro in progetti culturali.</p>
+      <p data-i18n="founder.p4">Ogni incarico coinvolge nomi, cifre e collezioni che restano riservati: la discrezione è parte integrante del lavoro.</p>
+      <p data-i18n="founder.p5">Oggi porta lo stesso rigore, fino ad ora riservato al mondo delle grandi istituzioni, a chi non vi aveva accesso diretto: imprenditori, collezionisti, chi ha in custodia una dimora storica o un brand da elevare nel linguaggio dell'arte.</p>
+    </div>
+    <div class="founder-cta reveal">
+      <a class="btn-nav" href="index.html#contact" data-i18n="founder.cta">Avvia un dialogo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="tc_monogram_white.png" alt="Tiberis Consulting" class="logo-mark footer-mark">
+      <span>Tiberis Consulting</span>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html#about" data-i18n="nav.about">Chi siamo</a>
+      <a href="index.html#approach" data-i18n="nav.method">Metodo</a>
+      <a href="index.html#services" data-i18n="nav.services">Servizi</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Contatti</a>
+    </nav>
+    <div class="footer-copy">
+      © 2026 Tiberis Consulting
+      <span data-i18n="footer.tagline">Patrimonio. Come strategia.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    it: {
+      meta: { description:"La Fondatrice — Karolina Liusikova, oltre quindici anni tra arte contemporanea, fondazioni private e istituzioni culturali. Il percorso dietro Tiberis Consulting." },
+      nav: { about:"Chi siamo", method:"Metodo", services:"Servizi", contact:"Contatti", book:"Richiedi un colloquio" },
+      founder: {
+        back:"← Tiberis Consulting",
+        eyebrow:"La Fondatrice",
+        h1:"Karolina Liusikova.",
+        p1:"Karolina Liusikova ha fondato Tiberis Consulting nel 2025, dopo oltre quindici anni nel mondo dell'arte e delle istituzioni culturali. Il suo percorso è cominciato nelle gallerie d'arte contemporanea, è proseguito nelle fondazioni private, e si è esteso — su tre continenti — a musei ed enti pubblici, costruendo posizionamento e narrativa per collezioni e archivi chiamati a parlare a nuovi pubblici.",
+        p2:"Negozia direttamente con agenzie internazionali, ministeri ed enti pubblici: diritti d'uso e di immagine, patrocini, collaborazioni tra soggetti con interessi diversi. La stessa capacità negoziale le ha permesso, nel tempo, di coinvolgere personalità di rilievo del mondo del cinema e dell'arte in progetti ed eventi ad alta visibilità.",
+        p3:"Individua bandi regionali ed europei, costruisce dossier tecnici, disegna strategie di patrocinio rivolte a singoli donatori. Nel tempo, questo lavoro ha contribuito a portare oltre 17 milioni di euro in progetti culturali.",
+        p4:"Ogni incarico coinvolge nomi, cifre e collezioni che restano riservati: la discrezione è parte integrante del lavoro.",
+        p5:"Oggi porta lo stesso rigore, fino ad ora riservato al mondo delle grandi istituzioni, a chi non vi aveva accesso diretto: imprenditori, collezionisti, chi ha in custodia una dimora storica o un brand da elevare nel linguaggio dell'arte.",
+        cta:"Avvia un dialogo →"
+      },
+      footer: { tagline:"Patrimonio. Come strategia." }
+    },
+    en: {
+      meta: { description:"The Founder — Karolina Liusikova, more than fifteen years across contemporary art galleries, private foundations and cultural institutions. The path behind Tiberis Consulting." },
+      nav: { about:"About", method:"Method", services:"Services", contact:"Contact", book:"Request a conversation" },
+      founder: {
+        back:"← Tiberis Consulting",
+        eyebrow:"The Founder",
+        h1:"Karolina Liusikova.",
+        p1:"Karolina Liusikova founded Tiberis Consulting in 2025, after more than fifteen years in the world of art and cultural institutions. She started out in contemporary art galleries, moved into private foundations, and went on — across three continents — to museums and public bodies, building positioning and narrative for collections and archives that needed to speak to new audiences.",
+        p2:"She negotiates directly with international agencies, ministries and public bodies: usage and image rights, patronage, collaborations between parties with competing interests. That same negotiating skill has, over time, brought prominent figures from film and the art world into high-visibility projects and events.",
+        p3:"She identifies regional and European grants, builds technical dossiers, and designs patronage strategies aimed at individual donors. Over the years, this work has helped bring more than €17 million into cultural projects.",
+        p4:"Every engagement involves names, figures and private collections: discretion is part of the work itself.",
+        p5:"Today, she brings that same rigour — until now reserved for major institutions — to those who never had direct access to it: entrepreneurs, collectors, and anyone entrusted with a historic property or a brand to elevate through the language of art.",
+        cta:"Begin a dialogue →"
+      },
+      footer: { tagline:"Heritage. As strategy." }
+    },
+    fr: {
+      meta: { description:"La Fondatrice — Karolina Liusikova, plus de quinze ans entre galeries d'art contemporain, fondations privées et institutions culturelles. Le parcours derrière Tiberis Consulting." },
+      nav: { about:"À propos", method:"Méthode", services:"Services", contact:"Contact", book:"Demander un échange" },
+      founder: {
+        back:"← Tiberis Consulting",
+        eyebrow:"La Fondatrice",
+        h1:"Karolina Liusikova.",
+        p1:"Karolina Liusikova a fondé Tiberis Consulting en 2025, après plus de quinze ans dans le monde de l'art et des institutions culturelles. Son parcours a commencé dans les galeries d'art contemporain, s'est poursuivi au sein de fondations privées, puis s'est étendu — sur trois continents — aux musées et aux organismes publics, construisant positionnement et récit pour des collections et des archives appelées à s'adresser à de nouveaux publics.",
+        p2:"Elle négocie directement avec des agences internationales, des ministères et des organismes publics : droits d'usage et d'image, mécénat, collaborations entre parties aux intérêts divergents. Cette même capacité de négociation lui a permis, au fil du temps, d'associer des personnalités reconnues du cinéma et de l'art à des projets et événements très visibles.",
+        p3:"Elle repère les appels à projets régionaux et européens, construit les dossiers techniques et conçoit des stratégies de mécénat ciblant un donateur unique. Au fil des années, ce travail a contribué à réunir plus de 17 millions d'euros pour des projets culturels.",
+        p4:"Chaque mission implique des noms, des montants, des collections privées : la discrétion fait partie intégrante du métier.",
+        p5:"Aujourd'hui, elle apporte cette même rigueur — jusqu'ici réservée au monde des grandes institutions — à ceux qui n'y avaient pas d'accès direct : entrepreneurs, collectionneurs, ou toute personne ayant la charge d'une demeure historique ou d'une marque à faire rayonner dans le langage de l'art.",
+        cta:"Engager un dialogue →"
+      },
+      footer: { tagline:"Patrimoine. Comme stratégie." }
+    }
+  };
+
+  function applyLang(lang){
+    if(!translations[lang]) return;
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const val = el.getAttribute('data-i18n').split('.').reduce((o,k)=>o&&o[k], translations[lang]);
+      if(val!==undefined) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const val = el.getAttribute('data-i18n-html').split('.').reduce((o,k)=>o&&o[k], translations[lang]);
+      if(val!==undefined) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-lang-btn]').forEach(b=>b.classList.toggle('active', b.dataset.langBtn===lang));
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc && translations[lang].meta) metaDesc.setAttribute('content', translations[lang].meta.description);
+    try{ localStorage.setItem('tiberis-lang', lang); }catch(e){}
+  }
+  document.querySelectorAll('[data-lang-btn]').forEach(b=>b.addEventListener('click', ()=>applyLang(b.dataset.langBtn)));
+  let startLang = 'it';
+  try{ startLang = localStorage.getItem('tiberis-lang') || 'it'; }catch(e){}
+  applyLang(startLang);
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('on'); observer.unobserve(e.target); } }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
